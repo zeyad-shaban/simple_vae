@@ -27,6 +27,10 @@ The VAE is trained to maximize the Evidence Lower Bound (ELBO)
    - Measured using Binary Cross Entropy (BCE).
 2. **KL Divergence ($D_{KL}(q_{\phi}(z|x) || p(z))$):** Measures how much the encoder's distribution differs from the **Prior** $p(z) \sim \mathcal{N}(0, 1)$.
    - Acts as a regularizer, forcing the latent space to be centered, symmetric, and smooth.
-   - **Formula:** $0.5 \cdot \sum(\mu^2 + \exp(\text{log\_var}) - 1 - \text{log\_var})$
+   - **Formula:**
+
+     $$
+     0.5 \cdot \sum(\mu^2 + \exp(\text{log\_var}) - 1 - \text{log\_var})
+     $$
 
 To balance KL and Reconstruction Loss we sum them rather than averaging, and normalize by the batch size.
