@@ -29,8 +29,6 @@ The VAE is trained to maximize the Evidence Lower Bound (ELBO)
    - Acts as a regularizer, forcing the latent space to be centered, symmetric, and smooth.
    - **Formula:**
 
-     $$
-     0.5 \cdot \sum(\mu^2 + \exp(\text{log\_var}) - 1 - \text{log\_var})
-     $$
+     1/2 (-log(std)  - 1 + std^2 + mue^2)
 
 To balance KL and Reconstruction Loss we sum them rather than averaging, and normalize by the batch size.
